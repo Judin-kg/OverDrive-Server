@@ -64,7 +64,7 @@ exports.registerUser = async (req, res) => {
     // 🔔 SEND WHATSAPP MESSAGE USING WAICHAT
     // ----------------------------------------
 
-    
+
     // try {
     //   let contactNumber = phone;
 
@@ -93,7 +93,7 @@ exports.registerUser = async (req, res) => {
 
     try {
   // Always send WhatsApp to this number
-  let contactNumber = "8086953311";
+  let contactNumber = "9745507607";
 
   // Add India country code
   if (!contactNumber.startsWith("91")) {
