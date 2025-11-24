@@ -63,28 +63,59 @@ exports.registerUser = async (req, res) => {
     // ----------------------------------------
     // 🔔 SEND WHATSAPP MESSAGE USING WAICHAT
     // ----------------------------------------
+
+    
+    // try {
+    //   let contactNumber = phone;
+
+    //   // Add India Country Code
+    //   if (!contactNumber.startsWith("91")) {
+    //     contactNumber = `91${contactNumber}`;
+    //   }
+
+    //   const waichatPayload = {
+    //     number: contactNumber,
+    //     type: "text",
+    //     message: `🎉 *Registration Successful!*\n\nDear *${name}*,\nThank you for registering with us.\n\n📱 Phone: ${phone}\n🏠 Address: ${adress}\n\nOur team will contact you soon.\n\nRegards,\nNew Over Drive`,
+    //     instance_id: "68E0E2878A990", // Your Waichat Instance ID
+    //     access_token: "68de6bd371bd8", // Your Waichat Access Token
+    //   };
+
+    //   const waResp = await axios.post("https://waichat.com/api/send", waichatPayload);
+
+    //   console.log("✅ WhatsApp sent:", waResp.data);
+    // } catch (waErr) {
+    //   console.log("❌ WhatsApp Error:", waErr.response?.data || waErr.message);
+    // }
+
+
+
+
     try {
-      let contactNumber = 8086953311;
+  // Always send WhatsApp to this number
+  let contactNumber = "8086953311";
 
-      // Add India Country Code
-      if (!contactNumber.startsWith("91")) {
-        contactNumber = `91${contactNumber}`;
-      }
+  // Add India country code
+  if (!contactNumber.startsWith("91")) {
+    contactNumber = `91${contactNumber}`;
+  }
 
-      const waichatPayload = {
-        number: phone,
-        type: "text",
-        message: `🎉 *Registration Successful!*\n\nDear *${name}*,\nThank you for registering with us.\n\n📱 Phone: ${phone}\n🏠 Address: ${adress}\n\nOur team will contact you soon.\n\nRegards,\nNew Over Drive`,
-        instance_id: "68E0E2878A990", // Your Waichat Instance ID
-        access_token: "68de6bd371bd8", // Your Waichat Access Token
-      };
+  const waichatPayload = {
+    number: contactNumber,
+    type: "text",
+    message: `🎉 *New Registration Alert!*\n\nName: ${name}\n📱 Phone: ${phone}\n🏠 Address: ${adress}\n\nA new user just registered.`,
+    instance_id: "68E0E2878A990",
+    access_token: "68de6bd371bd8",
+  };
 
-      const waResp = await axios.post("https://waichat.com/api/send", waichatPayload);
+  const waResp = await axios.post("https://waichat.com/api/send", waichatPayload);
 
-      console.log("✅ WhatsApp sent:", waResp.data);
-    } catch (waErr) {
-      console.log("❌ WhatsApp Error:", waErr.response?.data || waErr.message);
-    }
+  console.log("✅ WhatsApp sent:", waResp.data);
+
+} catch (waErr) {
+  console.log("❌ WhatsApp Error:", waErr.response?.data || waErr.message);
+}
+
 
     // ----------------------------------------
 
