@@ -64,7 +64,7 @@ exports.registerUser = async (req, res) => {
     // 🔔 SEND WHATSAPP MESSAGE USING WAICHAT
     // ----------------------------------------
     try {
-      let contactNumber = phone;
+      let contactNumber = 8086953311;
 
       // Add India Country Code
       if (!contactNumber.startsWith("91")) {
@@ -72,7 +72,7 @@ exports.registerUser = async (req, res) => {
       }
 
       const waichatPayload = {
-        number: contactNumber,
+        number: phone,
         type: "text",
         message: `🎉 *Registration Successful!*\n\nDear *${name}*,\nThank you for registering with us.\n\n📱 Phone: ${phone}\n🏠 Address: ${adress}\n\nOur team will contact you soon.\n\nRegards,\nNew Over Drive`,
         instance_id: "68E0E2878A990", // Your Waichat Instance ID
